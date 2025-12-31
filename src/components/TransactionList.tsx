@@ -22,6 +22,8 @@ import { useToast } from '@/hooks/use-toast';
 
 interface TransactionListProps {
   transactions: Transaction[];
+  onUpdate?: (id: string, updates: Partial<Omit<Transaction, 'id'>>) => void;
+  onDelete?: (id: string) => void;
 }
 
 const months = [
@@ -39,7 +41,7 @@ const months = [
   { value: '11', label: 'Diciembre' },
 ];
 
-export function TransactionList({ transactions }: TransactionListProps) {
+export function TransactionList({ transactions, onUpdate, onDelete }: TransactionListProps) {
   const { toast } = useToast();
   const [selectedMonth, setSelectedMonth] = useState<string>('all');
   const [selectedYear, setSelectedYear] = useState<string>('all');
@@ -244,6 +246,8 @@ export function TransactionList({ transactions }: TransactionListProps) {
                 key={transaction.id} 
                 transaction={transaction}
                 delay={index * 30}
+                onUpdate={onUpdate}
+                onDelete={onDelete}
               />
             ))
           )}

@@ -65,6 +65,14 @@ export function useFinanceData() {
     setTransactions(prev => [newTransaction, ...prev]);
   };
 
+  const updateTransaction = (id: string, updates: Partial<Omit<Transaction, 'id'>>) => {
+    setTransactions(prev => prev.map(t => t.id === id ? { ...t, ...updates } : t));
+  };
+
+  const deleteTransaction = (id: string) => {
+    setTransactions(prev => prev.filter(t => t.id !== id));
+  };
+
   const totalBalance = accounts.reduce((sum, acc) => sum + acc.balance, 0);
   const totalDebt = loans.reduce((sum, loan) => sum + loan.remainingAmount, 0);
   
@@ -90,6 +98,8 @@ export function useFinanceData() {
     loans,
     monthlyData,
     addTransaction,
+    updateTransaction,
+    deleteTransaction,
     totalBalance,
     totalDebt,
     monthlyIncome,

@@ -15,6 +15,8 @@ const Index = () => {
     loans,
     monthlyData,
     addTransaction,
+    updateTransaction,
+    deleteTransaction,
     totalBalance,
     totalDebt,
     monthlyIncome,
@@ -94,7 +96,11 @@ const Index = () => {
             <TrendChart data={monthlyData} />
 
             {/* Transaction List with Filters */}
-            <TransactionList transactions={transactions} />
+            <TransactionList 
+              transactions={transactions} 
+              onUpdate={updateTransaction}
+              onDelete={deleteTransaction}
+            />
           </div>
 
           {/* Right Sidebar */}
