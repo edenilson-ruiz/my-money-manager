@@ -2,11 +2,11 @@ import { Wallet, TrendingUp, TrendingDown, PiggyBank, CreditCard, LayoutDashboar
 import { StatCard } from '@/components/StatCard';
 import { AccountCard } from '@/components/AccountCard';
 import { LoanCard } from '@/components/LoanCard';
-import { TransactionItem } from '@/components/TransactionItem';
+import { TransactionList } from '@/components/TransactionList';
 import { TrendChart } from '@/components/TrendChart';
 import { AddTransactionDialog } from '@/components/AddTransactionDialog';
 import { useFinanceData } from '@/hooks/useFinanceData';
-import { ScrollArea } from '@/components/ui/scroll-area';
+
 
 const Index = () => {
   const {
@@ -93,24 +93,8 @@ const Index = () => {
             {/* Trend Chart */}
             <TrendChart data={monthlyData} />
 
-            {/* Recent Transactions */}
-            <div className="glass-card rounded-xl p-5">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold">Transacciones Recientes</h3>
-                <span className="text-sm text-muted-foreground">{transactions.length} movimientos</span>
-              </div>
-              <ScrollArea className="h-[300px] scrollbar-thin">
-                <div className="space-y-1">
-                  {transactions.slice(0, 10).map((transaction, index) => (
-                    <TransactionItem 
-                      key={transaction.id} 
-                      transaction={transaction}
-                      delay={400 + index * 50}
-                    />
-                  ))}
-                </div>
-              </ScrollArea>
-            </div>
+            {/* Transaction List with Filters */}
+            <TransactionList transactions={transactions} />
           </div>
 
           {/* Right Sidebar */}

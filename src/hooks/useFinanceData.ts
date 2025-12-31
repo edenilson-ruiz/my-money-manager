@@ -2,14 +2,31 @@ import { useState } from 'react';
 import { Transaction, Account, Loan, MonthlyData } from '@/types/finance';
 
 const initialTransactions: Transaction[] = [
-  { id: '1', type: 'income', amount: 45000, category: 'Salario', description: 'Pago quincenal', date: '2024-01-15' },
-  { id: '2', type: 'income', amount: 45000, category: 'Salario', description: 'Pago quincenal', date: '2024-01-31' },
-  { id: '3', type: 'expense', amount: 12000, category: 'Renta', description: 'Renta mensual', date: '2024-01-01' },
-  { id: '4', type: 'expense', amount: 3500, category: 'Servicios', description: 'Luz, agua, gas', date: '2024-01-05' },
-  { id: '5', type: 'expense', amount: 8000, category: 'Supermercado', description: 'Despensa mensual', date: '2024-01-10' },
-  { id: '6', type: 'expense', amount: 2500, category: 'Transporte', description: 'Gasolina', date: '2024-01-12' },
-  { id: '7', type: 'income', amount: 5000, category: 'Freelance', description: 'Proyecto web', date: '2024-01-20' },
-  { id: '8', type: 'expense', amount: 1500, category: 'Entretenimiento', description: 'Netflix, Spotify', date: '2024-01-08' },
+  // Diciembre 2024
+  { id: '1', type: 'income', amount: 45000, category: 'Salario', description: 'Pago quincenal', date: '2024-12-15' },
+  { id: '2', type: 'income', amount: 45000, category: 'Salario', description: 'Pago quincenal', date: '2024-12-31' },
+  { id: '3', type: 'expense', amount: 12000, category: 'Renta', description: 'Renta mensual', date: '2024-12-01' },
+  { id: '4', type: 'expense', amount: 3500, category: 'Servicios', description: 'Luz, agua, gas', date: '2024-12-05' },
+  { id: '5', type: 'expense', amount: 8000, category: 'Supermercado', description: 'Despensa mensual', date: '2024-12-10' },
+  { id: '6', type: 'expense', amount: 2500, category: 'Transporte', description: 'Gasolina', date: '2024-12-12' },
+  { id: '7', type: 'income', amount: 30000, category: 'Freelance', description: 'Aguinaldo proyecto', date: '2024-12-20' },
+  { id: '8', type: 'expense', amount: 15000, category: 'Entretenimiento', description: 'Regalos navidad', date: '2024-12-22' },
+  // Noviembre 2024
+  { id: '9', type: 'income', amount: 45000, category: 'Salario', description: 'Pago quincenal', date: '2024-11-15' },
+  { id: '10', type: 'income', amount: 45000, category: 'Salario', description: 'Pago quincenal', date: '2024-11-30' },
+  { id: '11', type: 'expense', amount: 12000, category: 'Renta', description: 'Renta mensual', date: '2024-11-01' },
+  { id: '12', type: 'expense', amount: 4200, category: 'Servicios', description: 'Luz, agua, gas', date: '2024-11-05' },
+  { id: '13', type: 'expense', amount: 9500, category: 'Supermercado', description: 'Despensa mensual', date: '2024-11-08' },
+  { id: '14', type: 'income', amount: 5000, category: 'Freelance', description: 'Diseño logo', date: '2024-11-18' },
+  { id: '15', type: 'expense', amount: 3000, category: 'Salud', description: 'Consulta médica', date: '2024-11-25' },
+  // Octubre 2024
+  { id: '16', type: 'income', amount: 45000, category: 'Salario', description: 'Pago quincenal', date: '2024-10-15' },
+  { id: '17', type: 'income', amount: 45000, category: 'Salario', description: 'Pago quincenal', date: '2024-10-31' },
+  { id: '18', type: 'expense', amount: 12000, category: 'Renta', description: 'Renta mensual', date: '2024-10-01' },
+  { id: '19', type: 'expense', amount: 3800, category: 'Servicios', description: 'Luz, agua, gas', date: '2024-10-05' },
+  { id: '20', type: 'expense', amount: 7500, category: 'Supermercado', description: 'Despensa mensual', date: '2024-10-10' },
+  { id: '21', type: 'expense', amount: 2800, category: 'Transporte', description: 'Gasolina', date: '2024-10-14' },
+  { id: '22', type: 'expense', amount: 1500, category: 'Entretenimiento', description: 'Netflix, Spotify', date: '2024-10-08' },
 ];
 
 const initialAccounts: Account[] = [
